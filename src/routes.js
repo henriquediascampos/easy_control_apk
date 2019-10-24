@@ -1,54 +1,72 @@
 import React from "react";
+
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
-import { View, Text, Image } from "react-native";
-import Ionicons from "react-native-vector-icons/Ionicons";
 
-import Login from './pages/Login';
+import Icon from "react-native-vector-icons/FontAwesome";
+
+import Login from './pages/login/Login';
+import RecoverPassword from './pages/recoverPassword/RecoverPassword';
+import UserRegistration from './pages/userRegistration/UserRegistration';
 import Home from "./pages/Home";
 import Despesas from "./pages/Despesas";
 import Settings from "./pages/Settings";
-import About from "./pages/About";
-import Icon from "./pages/components/Icon";
-import iconHome from "./assets/home.svg";
+// import About from "./pages/About";
 
 const tabsNavigate =  createAppContainer(createBottomTabNavigator({
     Home: {
         screen: Home,
         navigationOptions: {
             tabBarIcon: ({ tintColor }) => {
-                return <Ionicons name="md-home" size={25} color={tintColor} />;
-                // return (
-                //     <View style={{color: "#f5f5f5"}}>
-                //         <Image source={iconHome} />
-                //     </View>
-                // )
+                return <Icon name="home" size={35} color={tintColor} />;
             },
         }
     },
-    Despesas,
-    Settings,
+    Despesas: {
+        screen: Despesas,
+        navigationOptions: {
+                tabBarIcon: ({ tintColor }) => {
+                    return <Icon name="briefcase" size={35} color={tintColor} />;
+            },
+        }
+    },
+    // Conta: {
+    //     screen: Despesas,
+    //     navigationOptions: {
+    //             tabBarIcon: ({ tintColor }) => {
+    //                 return <Icon name="trending-up" size={35} color={tintColor} />;
+    //         },
+    //     }
+    // },
+    // historico: {
+    //     screen: Despesas,
+    //     navigationOptions: {
+    //             tabBarIcon: ({ tintColor }) => {
+    //                 return <Icon name="card" size={35} color={tintColor} />;
+    //         },
+    //     }
+    // },
+    Settings: {
+        screen: Settings,
+        navigationOptions: {
+                tabBarIcon: ({ tintColor }) => {
+                    return <Icon name="cog" size={35} color={tintColor} />;
+            },
+        }
+    },
     // About
 },{
     tabBarOptions: {
-        showIcon: true ,
         showLabel: false,
-        activeTintColor: '#c48ef6',
-        inactiveTintColor: '#999',
-        // labelStyle: {
-        //     fontSize: 18,
-        //     fontWeight: 'bold',
-        // },
-        // tabStyle: {
-        //     // padding: 10,
-        //     backgroundColor: '#c48ef6',
-        // },
-        // style: {
-        //     textAlignVertical: 'center',
-        //     alignItems: 'center',
-        //     alignSelf: "center",
-        //     justifyContent: 'center',
-        // },
+        activeTintColor: '#F5F5F5',
+        inactiveTintColor: '#6B52AE',
+        labelStyle: {
+            fontSize: 18,
+            fontWeight: 'bold',
+        },
+        tabStyle: {
+            backgroundColor: '#C48EF6',
+        },
     }
 }));
 
@@ -56,8 +74,10 @@ console.disableYellowBox = true;
 
 export default createAppContainer(
     createSwitchNavigator({
-        tabsNavigate,
+        UserRegistration,
         Login,
+        tabsNavigate,
+        RecoverPassword,
     }
 ));
 

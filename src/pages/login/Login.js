@@ -7,6 +7,13 @@ export default function Login({ navigation }) {
         navigation.navigate('tabsNavigate');
     }
 
+    function handleRecoverPassword() {
+        navigation.navigate('RecoverPassword');
+    }
+
+    function handleUserRegistration() {
+        navigation.navigate('UserRegistration');
+    }
     return (
         <View style={styles.container}>
             <TextInput style={styles.inputLogin}
@@ -18,8 +25,16 @@ export default function Login({ navigation }) {
                 autoCompleteType="password"
                 textContentType="password"
                 placeholder="senha"></TextInput>
-            <TouchableOpacity style={styles.button} onPress={handleLongin} >
-                <Text style={styles.textButton}>Entrar</Text>
+
+            <TouchableOpacity style={styles.buttonLogin} onPress={handleLongin} >
+                <Text style={styles.textButtonLogin}>Entrar</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.buttonsAuxiliares} onPress={handleRecoverPassword}>
+                <Text style={styles.textButtonCenter}>Esqueci minha senha</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.buttonsAuxiliares} onPress={handleUserRegistration}>
+                <Text style={styles.textButtonCenter}>Cadastrar</Text>
             </TouchableOpacity>
         </View>
     )
@@ -31,13 +46,20 @@ const styles = StyleSheet.create({
         padding: 30,
         justifyContent: 'center'
     },
-    button: {
+    buttonLogin: {
         backgroundColor: '#6B52AE',
         height: 50,
+        marginBottom: 20,
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: 30,
         borderRadius: 5
+    },
+    buttonsAuxiliares: {
+        height: 25
+    },
+    textButtonCenter: {
+        textAlign: "center",
     },
     inputLogin: {
         textAlign: 'center',
@@ -46,7 +68,7 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         fontSize: 15
     },
-    textButton: {
+    textButtonLogin: {
         fontSize: 16,
         color: '#ffffff'
     }

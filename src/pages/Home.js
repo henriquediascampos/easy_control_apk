@@ -1,32 +1,10 @@
 import React from 'react';
 import { StyleSheet, View, Text, FlatList } from 'react-native';
-
+import api from "../services/api";
 import Table from "./components/Table";
 export default function Home() {
     const colunms= ['Valor', 'Vencimento'];
-    const lines= [
-        { value: 25.50, expiration: '01-01-2019' },
-        { value: 105.00, expiration: '06-01-2019' },
-        { value: 50.00, expiration: '06-01-2019' },
-        { value: 100.50, expiration: '10-01-2019' },
-        { value: 100.50, expiration: '10-01-2019' },
-        { value: 100.50, expiration: '10-01-2019' },
-        { value: 100.50, expiration: '10-01-2019' },
-        { value: 100.50, expiration: '10-01-2019' },
-        { value: 100.50, expiration: '10-01-2019' },
-        { value: 100.50, expiration: '10-01-2019' },
-        { value: 100.50, expiration: '10-01-2019' },
-        { value: 100.50, expiration: '10-01-2019' },
-        { value: 100.50, expiration: '10-01-2019' },
-        { value: 100.50, expiration: '10-01-2019' },
-        { value: 100.50, expiration: '10-01-2019' },
-        { value: 100.50, expiration: '10-01-2019' },
-        { value: 100.50, expiration: '10-01-2019' },
-        { value: 100.50, expiration: '10-01-2019' },
-        { value: 100.50, expiration: '10-01-2019' },
-        { value: 100.50, expiration: '10-01-2019' },
-    ];
-
+    const lines = api.getContasMes();
     return (
         <View style={styles.homeContainer}>
             <View style={styles.cardContainer}>
@@ -61,7 +39,7 @@ const styles = StyleSheet.create({
     },
     cardHome: {
         fontSize: 28,
-        borderBottomColor: '#8202fa',
+        borderBottomColor: '#cf9cff',
         borderBottomWidth: 1,
         textAlign: 'center',
         color: '#f5f5f5',
