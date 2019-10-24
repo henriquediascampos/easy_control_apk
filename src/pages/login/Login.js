@@ -10,6 +10,7 @@ export default function Login({ navigation }) {
     function handleRecoverPassword() {
         navigation.navigate('RecoverPassword');
     }
+    
 
     function handleUserRegistration() {
         navigation.navigate('UserRegistration');
